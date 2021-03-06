@@ -1,34 +1,33 @@
 #include "game.h"
-#include "time.h"
 #include "sensor.h"
 
 using namespace std; 
 
 Game::Game(GameType game_type){
-    m_game_type = game_type; 
-    m_num_players = 4; 
+    this->m_game_type = game_type; 
+    this->m_num_players = 4; 
 
     //Pass by pointer
-    m_sensors = get_sensors();
-    m_num_balls_to_loose = 3; 
+    this->m_sensors = get_sensors();
+    this->m_num_balls_to_loose = 3; 
 }
 
 GameResult Game::play_game(){
-    int winner_id = NULL; 
+    int winner_id = -1; 
 
     list<int> balls_fallen;
     
-    for (int i = 0; i < m_num_players; i++)
+    for (int i = 0; i < this->m_num_players; i++)
         balls_fallen.push_back(0);
     
-    while (winner_id == NULL){
+    while (winner_id == -1){
 
         
         // here a pointer might be needed since we want to alter the int value in the lists
         auto ball = balls_fallen.begin();
-        auto sensor = (*m_sensors).begin();
+        auto sensor = m_sensors.begin();
 
-        for (int id = 0; id < m_num_players; id++){
+        for (int id = 0; id < this->m_num_players; id++){
 
             advance(ball, 1);
             advance(sensor, 1); 

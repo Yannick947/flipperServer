@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <sensor.h>
-#include <game.h>
+#include "game.h"
+
+using namespace std; 
 
 int main(){
 
@@ -10,10 +10,8 @@ int main(){
 
         //bluetooth_response = get_bluetooth_result(game);
 
-
         Game game = Game(GameType::Default);
         game.play_game();
 
-        return true;
     }
 }

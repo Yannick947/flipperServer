@@ -1,11 +1,9 @@
+#ifndef SENSOR_H
+#define SENSOR_H
+
 #include <list>
 
 using namespace std;
-
-static const int sensor_pin1 = 1000; 
-static const int sensor_pin2 = 1001; 
-static const int sensor_pin3 = 1002; 
-static const int sensor_pin4 = 1003; 
 
 class Sensor
 {
@@ -19,9 +17,10 @@ private:
 
 public: 
     Sensor(int pin_number, float threshold);
-
     bool get_ball_fallen(); 
 
 }; 
 
-list<Sensor>* get_sensors(); 
+list<Sensor> get_sensors(); 
+
+#endif
