@@ -1,17 +1,13 @@
-#include "game.h"
+#include "entities/game/game.h"
+#include "entities/sensor/sensor_factory.h"
+#include "use_cases/game_interactor.h"
 
 using namespace std; 
 
+
 int main(){
 
-    while (true) {
+    int num_players = 4; 
+    run_game_interactor(SensorType::Mock, num_players, GameType::Default);
 
-        // TODO: Mutlithreading done here
-
-        //bluetooth_response = get_bluetooth_result(game);
-
-        Game game = Game(GameType::Default);
-        game.play_game();
-
-    }
 }

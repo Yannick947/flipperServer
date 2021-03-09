@@ -1,6 +1,6 @@
-#include "game.h"
-#include "bluetooth_controller.h"
+#include "entities/game/game.h"
+#include "entities/sensor/sensor_factory.h"
 
-using namespace std; 
+using namespace std;
 
-void run_game(Game game, BluetoothController bluetooth_controller);
+void run_game_interactor(SensorType, int, GameType);

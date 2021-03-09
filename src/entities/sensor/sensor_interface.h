@@ -1,6 +1,10 @@
+#ifndef ISENSOR_H
+#define ISENSOR_H
 
 class ISensor{
     public: 
-        virtual ~ISensor();
-        virtual bool get_ball_fallen();
+        virtual bool get_ball_fallen()=0;      
+        virtual ~ISensor(){}  
 };
+
+#endif

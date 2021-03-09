@@ -1,4 +1,4 @@
-#include "mock_sensor.h"
+#include "entities/sensor/mock_sensor.h"
 #include <stdlib.h>   
   
 MockSensor::MockSensor(){}; 
