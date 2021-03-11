@@ -29,6 +29,7 @@ GameResult Game::play_game(){
 
         for (int id = 0; id < this->m_num_players; id++){
 
+            (**sensor).read_sensor();
             bool ball_fallen = (**sensor).get_ball_fallen();
 
             if (ball_fallen){
@@ -41,7 +42,7 @@ GameResult Game::play_game(){
                 return result;
             }
             advance(ball, 1);
-            advance(sensor, 1); 
+            advance(sensor, 1);
         }
     }
 }

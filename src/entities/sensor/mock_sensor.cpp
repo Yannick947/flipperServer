@@ -13,3 +13,7 @@ bool MockSensor::get_ball_fallen(){
         return false;
     }  
 }
+void MockSensor::read_sensor(){
+    // Mock implementation
+    return;
+}
