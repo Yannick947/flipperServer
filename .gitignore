@@ -1,6 +1,10 @@
 # vscode
 .vscode
 
+#cubeide 
+.cproject
+.project
+
 # Prerequisites
 *.d
 
