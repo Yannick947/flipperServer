@@ -5,7 +5,7 @@
 using namespace std; 
 
 
-int main(){
+int main_g(){
 
     int num_players = 4; 
     run_game_interactor(SensorType::STM32_LightBarrier, num_players, GameType::Default);

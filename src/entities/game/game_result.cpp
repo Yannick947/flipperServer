@@ -15,7 +15,7 @@ void GameResult::print(){
     auto player_ball_iterator = this->m_player_balls.begin();
 
     for (int i = 0; i < this->m_player_balls.size(); i++){
-        cout << "Player with id " << to_string(i) << " lost " << to_string(*player_ball_iterator) << " balls" << endl; 
+        //cout << "Player with id " << to_string(i) << " lost " << to_string(*player_ball_iterator) << " balls" << endl;
         advance(player_ball_iterator, 1);
     }
 }

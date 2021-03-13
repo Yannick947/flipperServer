@@ -2,17 +2,22 @@
 #include <string.h>
 #include <list>
 #include <vector>
-#include <gpio.h>
+#include <string>
+//#include <gpio.h>
 
 #include "entities/sensor/stm32_light_barrier_sensor.h"
   
+//void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
+//GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+
+
 using namespace std; 
 
 // But config for registers and adresses here!
-char STM32_light_barrier::stm32_registers[4] = {'A', 'B', 'C', 'D'};
-int STM32_light_barrier::stm32_adresses[4] = {1000, 1001, 1002, 1003};
+string STM32_light_barrier::stm32_registers[4] = {"GPIOA", "GPIOA", "GPIOB", "GPIOC"};
+int STM32_light_barrier::stm32_adresses[4] = {0x01, 0x04, 0x00, 0x01};
 
-STM32_light_barrier::STM32_light_barrier(char register_type, int address){
+STM32_light_barrier::STM32_light_barrier(string register_type, int address){
     this->address = address; 
     this->register_type = register_type;   
 }; 

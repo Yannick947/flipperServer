@@ -5,9 +5,9 @@
 using namespace std; 
 
 
-int main(){
+/*int main(){
 
     int num_players = 4; 
     run_game_interactor(SensorType::Mock, num_players, GameType::Default);
 
-}
+}*/
