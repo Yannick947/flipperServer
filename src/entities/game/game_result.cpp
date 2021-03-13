@@ -1,5 +1,4 @@
 #include <list>
-#include <iostream>
 #include "entities/game/game_result.h"
 
 using namespace std; 
@@ -11,8 +10,8 @@ GameResult::GameResult(list<int> player_balls, int looser_player_id){
 }
 
 void GameResult::print(){
-    cout << "Looser is player with id ";
-    cout << to_string(this->m_looser_player_id) << endl; 
+ //  cout << "Looser is player with id ";
+ //  cout << to_string(this->m_looser_player_id) << endl;
     auto player_ball_iterator = this->m_player_balls.begin();
 
     for (int i = 0; i < this->m_player_balls.size(); i++){
