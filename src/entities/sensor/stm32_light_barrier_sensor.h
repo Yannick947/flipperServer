@@ -5,6 +5,7 @@
 #include <string>
 #include <chrono>
 #include "entities/sensor/sensor_interface.h"
+#include "stm32f1xx_hal.h"
 
 
 using namespace std;
@@ -12,7 +13,7 @@ using namespace std;
 class STM32_light_barrier: virtual public ISensor 
 {
     private: 
-        string register_type;
+		GPIO_TypeDef* register_type;
         int address;
         float threshold_detection = 0.3;
         int num_detections_for_lost_ball = 10;
@@ -31,10 +32,10 @@ class STM32_light_barrier: virtual public ISensor
 
     public: 
 
-        static string stm32_registers[4];
+        static GPIO_TypeDef* stm32_registers[4];
         static int stm32_adresses[4];
 
-        STM32_light_barrier(string register_type, int address);
+        STM32_light_barrier(GPIO_TypeDef* register_type, int address);
         void read_sensor(); 
         bool get_ball_fallen(); 
 }; 

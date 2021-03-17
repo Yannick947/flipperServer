@@ -3,7 +3,7 @@
 #include <list>
 #include <vector>
 #include <string>
-//#include <gpio.h>
+#include "stm32f1xx_hal.h"
 
 #include "entities/sensor/stm32_light_barrier_sensor.h"
   
@@ -13,11 +13,11 @@
 
 using namespace std; 
 
-// But config for registers and adresses here!
-string STM32_light_barrier::stm32_registers[4] = {"GPIOA", "GPIOA", "GPIOB", "GPIOC"};
-int STM32_light_barrier::stm32_adresses[4] = {0x01, 0x04, 0x00, 0x01};
+// Put config for registers and addresses here!
+GPIO_TypeDef* STM32_light_barrier::stm32_registers[4] = {GPIOC, GPIOC, GPIOB, GPIOA};
+int STM32_light_barrier::stm32_adresses[4] = {0x0001, 0x0002, 0x0001, 0x0010};
 
-STM32_light_barrier::STM32_light_barrier(string register_type, int address){
+STM32_light_barrier::STM32_light_barrier(GPIO_TypeDef* register_type, int address){
     this->address = address; 
     this->register_type = register_type;   
 }; 
@@ -41,19 +41,11 @@ void STM32_light_barrier::read_sensor(){
     // TODO: gpio stuff here
 
     float sensor_val; 
-    // analog val needs to be read from sensor
-    // float sensor_val = gpio.get_analog_senso(this->register, this-> adress);
-    int random_number = rand() % 10 + 1;
 
-    if (random_number == 1){
-        sensor_val = 0.5 ; 
-    } else {
-        sensor_val = 0.1;
-    }
-
+    sensor_val = HAL_GPIO_ReadPin(this->register_type, this->address);
     chrono::steady_clock::time_point now = chrono::steady_clock::now();
 
-    if (sensor_val > this->threshold_detection &&
+    if (sensor_val &&
      (chrono::duration_cast<chrono::milliseconds>(now - this->last_detection).count()) >
       this->threshold_time_btw_detections) {
           
@@ -64,6 +56,5 @@ void STM32_light_barrier::read_sensor(){
 
 void STM32_light_barrier::init_gpio_pin(){
     // GPIO initialization done here if necesseary.
-    int a = 1; 
     return; 
 }
