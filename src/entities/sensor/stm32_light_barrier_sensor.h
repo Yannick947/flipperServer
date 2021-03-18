@@ -15,6 +15,11 @@ class STM32_light_barrier: virtual public ISensor
     private: 
 		GPIO_TypeDef* register_type;
         int address;
+        int num_detections = 0;
+        chrono::steady_clock::time_point last_detection;
+
+        // Static variables 
+        
         float threshold_detection = 0.3;
         int num_detections_for_lost_ball = 10;
 
@@ -24,8 +29,6 @@ class STM32_light_barrier: virtual public ISensor
         // Time in milliseconds after which the num_detections is reset to 0.
         float reset_threshold_time = 400;
 
-        int num_detections = 0;
-        chrono::steady_clock::time_point last_detection;
 
         void init_gpio_pin(); 
         bool evaluate_last_vals();
