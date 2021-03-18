@@ -1,19 +1,22 @@
-#include "entities/game/game.h"
+#include "entities/game/game_interface.h"
+#include "entities/game/default_game.h"
+#include "entities/game/game_result.h"
 #include "entities/sensor/sensor_interface.h"
 #include "list"
 
 using namespace std; 
 
-Game::Game(GameType game_type, list<ISensor*> sensors){
-    this->m_game_type = game_type; 
+DefaultGame::DefaultGame(list<ISensor*> sensors){
+
+    // Declare as const
     this->m_num_players = 4; 
+    this->m_num_balls_to_loose = 3; 
 
     //Pass by pointer
     this->m_sensors = sensors;
-    this->m_num_balls_to_loose = 3; 
 }
 
-GameResult Game::play_game(){
+GameResult DefaultGame::play_game(){
 
     list<int> balls_fallen;
     

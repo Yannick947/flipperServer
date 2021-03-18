@@ -1,6 +1,10 @@
-#include "entities/game/game.h"
+#ifndef RUN_GAME_INTERACTOR_H
+#define RUN_GAME_INTERACTOR_H
+
+#include "entities/game/game_interface.h"
 #include "entities/sensor/sensor_factory.h"
 
-using namespace std;
 
 void run_game_interactor(SensorType, int, GameType);
+
+#endif
