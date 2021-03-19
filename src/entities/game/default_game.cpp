@@ -2,11 +2,13 @@
 #include "entities/game/default_game.h"
 #include "entities/game/game_result.h"
 #include "entities/sensor/sensor_interface.h"
+#include "entities/motor_controller_interface.h"
+
 #include "list"
 
 using namespace std; 
 
-DefaultGame::DefaultGame(list<ISensor*> sensors){
+DefaultGame::DefaultGame(list<ISensor*> sensors, IMotor* motor){
 
     // Declare as const
     this->m_num_players = 4; 
@@ -14,6 +16,7 @@ DefaultGame::DefaultGame(list<ISensor*> sensors){
 
     //Pass by pointer
     this->m_sensors = sensors;
+    this->motor = motor; 
 }
 
 GameResult DefaultGame::play_game(){
