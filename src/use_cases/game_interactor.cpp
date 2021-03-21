@@ -1,10 +1,12 @@
 #include "entities/game/game_interface.h"
 #include "entities/game/game_factory.h"
 #include "entities/game/game_result.h"
+#include "controllers/bluetooth_handler.h"
 #include "use_cases/game_interactor.h"
 #include "entities/sensor/sensor_factory.h"
 #include "controllers/motor/motor_factory.h"
 #include "entities/motor_controller_interface.h"
+#include "controllers/bluetooth_handler.h"
 
 #include <list>
 
@@ -21,10 +23,15 @@ void run_game_interactor(SensorType sensor_type,
     while (true) {
 
         // TODO: Mutlithreading done here
-        //bluetooth_response = get_bluetooth_result(game);
+        //game_type, num_players = get_config_from_bluetooth_connection();
         
         IGame* game = create_game(game_type, sensors, motor);
+        
+        BluetoothHandler* bluetooth_handler = new BluetoothHandler(game);
+
         GameResult result = (*game).play_game();
+
         result.print();
+
     }
 }
