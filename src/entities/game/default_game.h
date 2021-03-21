@@ -15,10 +15,9 @@ private:
 
     // currently pin numbers are hard coded
     list<ISensor*> m_sensors;
-    IMotor* motor; 
-    int m_num_players;
+    IMotor* motor;
     int m_starting_time;
-    int m_num_balls_to_loose;
+    int num_balls_to_loose;
  
 public:
     DefaultGame(list<ISensor*>, IMotor*);
