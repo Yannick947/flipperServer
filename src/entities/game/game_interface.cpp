@@ -3,6 +3,10 @@
 #include <thread>
 #include <vector>
 
+
+/**
+ * Notify all observers of game for status changes. 
+ **/
 void IGame::notify(){
 
     for (int i = 0; i < this->observers.size(); i++){
@@ -12,6 +16,9 @@ void IGame::notify(){
     }
 }
 
+/**
+ * Initialize empty list of "lost balls" for every player. 
+ **/
 void IGame::init_balls(){
 
     this->balls_fallen = vector<int>();

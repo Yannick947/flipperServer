@@ -4,7 +4,7 @@
 
 using namespace std; 
 
-
+///Entrypoint for mock game.
 int main(){
 
     int num_players = 4; 

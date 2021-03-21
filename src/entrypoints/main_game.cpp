@@ -3,7 +3,9 @@
 
 using namespace std; 
 
-
+/** 
+ * Main entrypoint for flipper game. 
+ **/
 int main_g(){
 
     int num_players = 4; 

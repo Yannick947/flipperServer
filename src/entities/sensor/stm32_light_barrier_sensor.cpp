@@ -17,11 +17,22 @@ using namespace std;
 GPIO_TypeDef* STM32_light_barrier::stm32_registers[4] = {GPIOC, GPIOC, GPIOB, GPIOA};
 int STM32_light_barrier::stm32_adresses[4] = {0x0001, 0x0002, 0x0001, 0x0010};
 
+/**
+ * Constructor for STM32 light barrier. 
+ * 
+ * @param register_type: Type of the register, one of GPIOA, GPIOB, GPIOC,GPIOD
+ * @param address: The address for the light barrier register.
+ **/
 STM32_light_barrier::STM32_light_barrier(GPIO_TypeDef* register_type, int address){
     this->address = address; 
     this->register_type = register_type;   
 }; 
 
+/**
+ * Check whether the player lost a ball since the last ball was lost.
+ *
+ * @return a flag indicating wether ball was lost.
+ **/
 bool STM32_light_barrier::get_ball_fallen(){
 
     chrono::steady_clock::time_point now = chrono::steady_clock::now();
@@ -36,9 +47,10 @@ bool STM32_light_barrier::get_ball_fallen(){
     return false;
 }
 
+/**
+ * Read the analog value from the sensor. 
+ **/
 void STM32_light_barrier::read_sensor(){
-
-    // TODO: gpio stuff here
 
     float sensor_val; 
 
@@ -54,6 +66,11 @@ void STM32_light_barrier::read_sensor(){
     }
 }
 
+/**
+ * Init the gpio pin. 
+ * 
+ * @TODO: Check whether done here or in microcontroller routine. 
+ **/
 void STM32_light_barrier::init_gpio_pin(){
     // GPIO initialization done here if necesseary.
     return; 

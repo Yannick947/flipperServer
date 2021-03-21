@@ -11,7 +11,15 @@
 #include <list>
 
 
-//add sensor type to arg
+/**
+ * Game interactor to start games and handle input and output to 
+ * and from bluetooth devices.
+ * 
+ * @sensor_type: Type of the sensor. 
+ * @num_players: Number of players playing the game, defaults to 4.
+ * @game_type: Type of the game. 
+ * @motor_type: Type of the motor to be used. 
+ **/
 void run_game_interactor(SensorType sensor_type,
                          int num_players,
                          GameType game_type,

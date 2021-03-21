@@ -12,6 +12,7 @@ class GameResult {
         vector<int> m_player_balls; 
 
     public: 
+    
         GameResult(vector<int> player_balls, int looser_player_id);
 
         int getWinner();

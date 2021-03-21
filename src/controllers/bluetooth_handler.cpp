@@ -4,9 +4,13 @@
         
 using namespace std; 
 
-
+/** 
+ * Update method from observer pattern which is called by the game class
+ * 
+ * @returns void. 
+ * @TODO: Implement. 
+ **/
 void BluetoothHandler::update(){
-    // TODO
     cout << "Update on bluetooth handler done."<< endl; 
     int a = 1;
-};
+}

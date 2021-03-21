@@ -1,5 +1,5 @@
-
-using namespace std; 
+#ifndef BLUETOOTH_CONTROLLER_H
+#define BLUETOOTH_CONTROLLER_H
 
 class BluetoothController{
     private: 
@@ -9,3 +9,5 @@ class BluetoothController{
         BluetoothController(int adress); 
         bool connect(); 
 };
+
+#endif

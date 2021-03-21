@@ -5,10 +5,19 @@
 #include "entities/motor_controller_interface.h"
 
 #include <iostream>
-#include "list"
+#include <list>
 
 using namespace std; 
 
+/**
+ * Create a Default game. 
+ * 
+ * @param sensors: A list of sensors which read from the gpio to detect 
+ * balls which were lost by a player.
+ * 
+ * @param motor: A motor object containing utilities for setting and getting
+ * motor speed.
+ **/
 DefaultGame::DefaultGame(list<ISensor*> sensors, IMotor* motor){
 
     this->num_players = 4; 
@@ -16,13 +25,20 @@ DefaultGame::DefaultGame(list<ISensor*> sensors, IMotor* motor){
 
     this->m_sensors = sensors;
     this->motor = motor; 
-
+    
     // init balls after setting number of players since depends on length of list
     this->init_balls();
 }
 
+/** 
+ * Play a default game with constant motor speed. 
+ * 
+ * @return the result of the game containing lost balls of every player.
+ **/
 GameResult DefaultGame::play_game(){
-    
+
+    this->motor->set_speed(1.0);
+
     while (true){
 
         // here a pointer might be needed since we want to alter the int value in the lists
