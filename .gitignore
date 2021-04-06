@@ -37,3 +37,6 @@
 *.exe
 *.out
 *.app
+
+# CAD Files
+/CAD/*.FCStd1
