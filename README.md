@@ -2,7 +2,7 @@
 
 Server to host a flipper game for handling game functionality and connection to mobile devices.
 
-![Mock up of flipper board.](https://github.com/Yannick947/flipperServer/blob/main/CAD/flipper_quarter.png)
+![Mock up of flipper board.](https://github.com/Yannick947/flipperServer/CAD/flipper_quarter.png)
 
 Availabele game modes: 
 - Default
